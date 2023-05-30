@@ -1,10 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import Header from './components/Header';
-import Footer from './components/Footer';
-import Content from './components/Content';
-import Employee from './components/Employee';
-// const WebHeader = ()=>{
+import { Content, Footer, Employee, Header } from './components';
   
 //   return(
 //     <div>
@@ -13,15 +9,13 @@ import Employee from './components/Employee';
 //   );
 // }
 
-function App() {
-  return (
-    <div>
-      <Header />
-      <Content />
-      <Employee />
-      <Footer />
-    </div>
-  );
-}
+const App =()=>(
+ <div>
+  <Header />
+  <Content />
+  <Employee />
+  <Footer />
+ </div>
+);
 
 export default App;

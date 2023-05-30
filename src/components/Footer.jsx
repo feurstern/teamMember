@@ -1,6 +1,6 @@
 const Footer=()=>{
     return(
-        <footer>
+        <footer class="bg-primary">
             <h1>Created by Hatsune Miku</h1>
         </footer>
     );

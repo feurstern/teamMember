@@ -11,7 +11,8 @@ const Employee = () => {
             fullName: "Hatsune Miku",
             designation: "Game Developer",
             gender: "female",
-            teamName: "Team A"
+            teamName: "Team A",
+            photo:{ganyu},
         },
         {
             id: 2,
@@ -21,56 +22,56 @@ const Employee = () => {
             teamName: "Team A"
         },
         {
-            id: "3",
+            id: 3,
             fullName: "Mari Kitagawa",
             designation: "3D Artist",
             gender: "female",
             teamName: "Team A"
         },
         {
-            id: "4",
+            id: 4,
             fullName: "Yuuko Oshima",
             designation: "Full Stack Developer",
             gender: "female",
             teamName: "Team B"
         },
         {
-            id: "5",
+            id: 5,
             fullName: "Saeko Yamamoto",
             designation: "QA Teater",
             gender: "Female",
             teamName: "Team B"
         },
         {
-            id: "6",
+            id: 6,
             fullName: "Mikasa Ackerman",
             designation: "Database Engineer",
             gender: "Female",
             teamName: "Team B"
         },
         {
-            id: "7",
+            id: 7,
             fullName: "Mieruko",
             designation: "Machine Learning Developer",
             gender: "Female",
             teamName: "Team C"
         },
         {
-            id: "8",
+            id: 8,
             fullName: "Utaha Kasmumigaoka",
             designation: "AI Engineer",
             gender: "Female",
             teamName: "Team C"
         },
         {
-            id: "9",
+            id: 9,
             fullName: "Keqing",
             designation: "Data Analyist",
             gender: "Female",
             teamName: "Team C"
         },
         {
-            id: "10",
+            id: 10,
             fullName: "Hu Tao",
             designation: "Arduino Engineer",
             gender: "Female",
@@ -94,8 +95,13 @@ const Employee = () => {
     ])
 
     const handleEmployeeCardClick=(event)=>{
-
+        const transformedEmployees = employee.map((employee)=> employee.id === parseInt(event.currentTarget.id)
+                                                                ?(employee.teamName === selectedTeam)?{...employee, teamName:''}:{...employee,teamName:selectedTeam}
+                                                                :employee);
+        setEmployee(transformedEmployees);
+        console.log(`The current event id : ${event.currentTarget}`);
     }
+
     
 
     const handleTeamSelectionChange=(event)=>{
@@ -103,6 +109,9 @@ const Employee = () => {
         setTeam(event.target.value);
 
     }
+  
+
+   
 
     // const getImageData=()=>{
     //     let imgProfile
@@ -142,20 +151,10 @@ const Employee = () => {
                     <div className="card-collection"> 
                     {
                         employee.map((employee) => (
-                            <div id={employee.id} className="card m-2" style={{cursor:"pointer"}}>
-                                {(employee.id=1)?
-                                (employee.id=2)? 
-                                (employee.id=3)? 
-                                (employee.id=4)?
-                                (employee.id=5)?
-
-                                                      <img src={keqing} class="card-top-img" />
-                                                    : <img src={hutao} class="card-top-img" />   
-                                                    : <img src={ganyu} class="card-top-img" /> 
-                                                    : <img src={keqing} class="card-top-img"></img>      
-                                                    : <img src={hutao} class="card-top-img"></img> 
-                                                    : <img src={keqing} class="card-top-img"></img>                           
-                                                     } 
+                            <div id={employee.id} className={(employee.teamName === selectedTeam?'card m-2 standout' : 'card m-2')} style={{cursor:"pointer"}} onClick={handleEmployeeCardClick}>
+                            
+                            {(employee.id=1)?<img src={keqing}/> : <img src={hutao} />}
+                            
                                
 
                                 <div className="card-body">

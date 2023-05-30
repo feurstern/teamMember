@@ -37,6 +37,30 @@
 .bg-image{
   width: 100%;
   height: auto;
+  opacity: 0.2;
+  background-color: skyblue;
+}
+
+.container-bg-img{
+  position: relative;
+  text-align: center;
+  color:white;
+}
+
+.text-over-img{
+  position: absolute;
+  top:30%;
+  bottom: 50%;
+  left:30%;
+  right: 30%;
+}
+.text-over-img :hover{
+  background-color: skyblue;
+  opacity: 0.5;
+}
+.stand-out{
+  box-shadow: rgba(0, 0, 0, 16) 0px 1px 4px, rgb(51,51,51) 0px 0px 0px 3px;
+  
 }
 
 @keyframes App-logo-spin {
