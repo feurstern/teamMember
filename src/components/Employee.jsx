@@ -4,7 +4,7 @@ import hutao from '../pics/hutao.png'
 import ganyu from '../pics/gamnyu.webp'
 
 const Employee = () => {
-    const [selectedTeam, setTeam] = useState("TeamC");
+    const [selectedTeam, setTeam] = useState("TeamD");
     const [employee, setEmployee] = useState([
         {
             id: 1,
@@ -12,7 +12,7 @@ const Employee = () => {
             designation: "Game Developer",
             gender: "female",
             teamName: "Team A",
-            photo:{ganyu},
+            photo: { ganyu },
         },
         {
             id: 2,
@@ -91,28 +91,39 @@ const Employee = () => {
             gender: "Female",
             teamName: "Team D"
         },
-        
+
 
     ])
+    const address = [
+        {
+            address: 'japan'
+        },
+        {
+            address: 'germany'
+        },
+        {
+            address : 'South Korea'
+        }
+    ]
 
-    const handleEmployeeCardClick=(event)=>{
-        const transformedEmployees = employee.map((employee)=> employee.id === parseInt(event.currentTarget.id)
-                                                                ?(employee.teamName === selectedTeam)?{...employee, teamName:''}:{...employee,teamName:selectedTeam}
-                                                                :employee);
+    const handleEmployeeCardClick = (event) => {
+        const transformedEmployees = employee.map((employee) => employee.id === parseInt(event.currentTarget.id)
+            ? (employee.teamName === selectedTeam) ? { ...employee, teamName: '' } : { ...employee, teamName: selectedTeam }
+            : employee);
         setEmployee(transformedEmployees);
         console.log(`The current event id : ${event.currentTarget}`);
     }
 
-    
 
-    const handleTeamSelectionChange=(event)=>{
+
+    const handleTeamSelectionChange = (event) => {
         console.log(event.target.value);
         setTeam(event.target.value);
 
     }
-  
 
-   
+
+
 
     // const getImageData=()=>{
     //     let imgProfile
@@ -129,47 +140,53 @@ const Employee = () => {
     //     }
 
 
-        
-        
-        
-        
-        
+
+
+
+
+
     // }
     return (
         <main className="container">
-          <div class="row justify-content-center mt-3 b-3">
-            <div>
-                <select className="form-select form-select-lg" value={selectedTeam} onChange={handleTeamSelectionChange}>
-                    <option value="Team A">Team A</option>
-                    <option value="Team B">Team B</option> 
-                    <option value="Team C">Team C</option>
-                    <option value="Team D">Team D</option>
-                </select>
+            <div class="row justify-content-center mt-3 b-3">
+                <div>
+                    <select className="form-select form-select-lg" value={selectedTeam} onChange={handleTeamSelectionChange}>
+                        <option value="Team A">Team A</option>
+                        <option value="Team B">Team B</option>
+                        <option value="Team C">Team C</option>
+                        <option value="Team D">Team D</option>
+                    </select>
+                </div>
             </div>
-          </div>
             <div class="row justify-content-center mt-3 mb-3">
                 <div class="col-8">
-                    <div className="card-collection"> 
-                    {
-                        employee.map((employee) => (
-                            <div id={employee.id} className={(employee.teamName === selectedTeam?'card m-2 standout' : 'card m-2')} style={{cursor:"pointer"}} onClick={handleEmployeeCardClick}>
-                             
-                            {(employee.id=1)?<img src={keqing}/> : <img src={hutao} />}
-                            
-                               
+                    <div className="card-collection">
+                        {
+                            employee.map((employee) => (
+                                <div id={employee.id} className={(employee.teamName === selectedTeam ? 'card m-2 standout' : 'card m-2')} style={{ cursor: "pointer" }} onClick={handleEmployeeCardClick}>
 
-                                <div className="card-body">
-                                    <h5 className="card-title"> Fullname : {employee.fullName}</h5>
-                                    <p className="card-text"><b>Designation:</b> {employee.designation}</p>
-                                    <p className="card-text"><b>Gender: </b> {employee.gender}</p>
-                                    <p className="card-text"><b>Team Name : {employee.teamName}</b></p>
-                                    {/* <button value className="btn btn-primary">Choose</button> */}
-                                    
+                                    {(employee.id = 1) ? <img src={keqing} /> : <img src={hutao} />}
+
+
+
+                                    <div className="card-body">
+                                        <h5 className="card-title"> Fullname : {employee.fullName}</h5>
+                                        <p className="card-text"><b>Designation:</b> {employee.designation}</p>
+                                        <p className="card-text"><b>Gender: </b> {employee.gender}</p>
+                                        <p className="card-text"><b>Team Name : {employee.teamName}</b></p>
+                                        {/* <button value className="btn btn-primary">Choose</button> */}
+
+                                    </div>
                                 </div>
-                            </div>
 
-                        ))
-                    }
+                            ))
+                        }
+                        {/* {
+                            address.map((data)=>(
+                                <h1>{data.address}</h1>
+                            ))
+
+                        } */}
                     </div>
 
                 </div>
