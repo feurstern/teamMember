@@ -165,7 +165,7 @@ const Employee = () => {
                             employee.map((employee) => (
                                 <div id={employee.id} className={(employee.teamName === selectedTeam ? 'card m-2 standout' : 'card m-2')} style={{ cursor: "pointer" }} onClick={handleEmployeeCardClick}>
 
-                                    {(employee.id = 1) ? <img src={keqing} /> : <img src={hutao} />}
+                                    {(employee.id = 1) ? <img src={hutao} /> : <img src={hutao} />}
 
 
 
@@ -181,12 +181,12 @@ const Employee = () => {
 
                             ))
                         }
-                        {/* {
+                         {/* {
                             address.map((data)=>(
                                 <h1>{data.address}</h1>
                             ))
 
-                        } */}
+                        }  */}
                     </div>
 
                 </div>
